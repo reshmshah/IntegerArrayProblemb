@@ -1,0 +1,45 @@
+ static void Main(string[] args)
+        {
+            int[] arr = { 5,6,8,1,1,10 };
+            int max2 = SecondMax(arr);
+
+            Console.WriteLine("sSecondMax is " + max2);
+            Console.ReadLine();
+        }
+
+
+        public static List<int> convertarray(int[] arr)
+        {
+           
+            List<int> list = new List<int>();
+
+            for (int x = 5; x < 10; x++)
+            {
+                list.Add(x);
+            }
+            return list;
+        }
+         public static int SecondMax(int[] input)
+        {
+            int secondmax,max;
+             max= input[0];
+             secondmax =0;
+
+             for(int i=0;i<= input.Length-1;i++)
+             {
+                 if(input[i] > max)
+                 {
+                     secondmax = max;
+                     max = input[i];
+
+                 }
+                 else if(input[i] > secondmax && input[i]<max)
+                 {
+                     secondmax = input[i];
+                 }
+           
+             }
+             return secondmax;
+        }
+    }
+  
