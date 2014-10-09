@@ -1,0 +1,71 @@
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 4;
+            int[][] matrix = new int[4][];
+
+           matrix[0] = new int[4] { 0,1,0,0};
+           //matrix[0][1]=1;
+           //matrix[0][2] =0;
+           //matrix[0][3] =0;
+           matrix[1] = new int[4] { 0, 0, 1, 0 };
+           //matrix[1][1]=0;
+           //matrix[2][2] =1;
+           //matrix[3][3] =0;
+          matrix[2]=new int[4] {0,1,1,1};
+           //matrix[2][1]=1;
+           //matrix[2][2] =1;
+           //matrix[2][3] =1;
+           matrix[3]=new int[4] { 0,0,0,0 };
+           //matrix[3][1]=0;
+           //matrix[3][2] =0;
+           //matrix[3][3] =0;        
+          
+           for (int k = 0; k <= matrix.Length - 1; k++)
+           {
+               for (int l = 0; l <= matrix.Length - 1; l++)
+               {
+                   Console.Write(" " + matrix[k][l] + " ");
+               }
+               Console.WriteLine();
+           }
+           Console.ReadLine();
+           int[][] metrix = rotate(matrix, n);
+           Console.WriteLine();
+
+           for (int i = 0; i <= metrix.Length - 1; i++)
+           {
+               for(int j=0;j<=matrix.Length-1;j++)
+               {
+                   Console.Write(" " + metrix[i][j] + " ");
+               }
+               Console.WriteLine();
+           }
+           Console.ReadLine();
+
+        }
+
+        private static int[][] rotate(int[][] matrix, int n)
+        {
+            for (int layer = 0; layer <= n / 2; ++layer)
+            {
+                int start = layer;
+                int last = n - 1 - layer;
+                for(int i= start;i<last;++i)
+                {
+                    int offset = i - start;
+                    int top = matrix[start][i];
+                    matrix[start][i] = matrix[last - offset][start];
+                     matrix[last - offset][start] = matrix[last][last-offset];
+                    matrix[last][last-offset] =matrix[i][last];
+                    matrix[i][last] = top;
+
+                }
+                
+            }
+            return (matrix);
+
+            
+        }
+    }
