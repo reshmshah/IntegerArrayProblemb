@@ -1,0 +1,29 @@
+ class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Romal value for number 100 is " + ToRoman(100));
+            Console.ReadLine();
+        }
+
+        public static string ToRoman(int DecimalNumber)
+        {
+            if ((DecimalNumber < 0) || (DecimalNumber > 3999)) throw new ArgumentOutOfRangeException("Value must be between 1 and 3999");
+            if (DecimalNumber < 1) return string.Empty;
+            if (DecimalNumber >= 1000) return "M" + ToRoman(DecimalNumber - 1000);
+            if (DecimalNumber >= 900) return "CM" + ToRoman(DecimalNumber - 900); //EDIT: i've typed 400 instead 900
+            if (DecimalNumber >= 500) return "D" + ToRoman(DecimalNumber - 500);
+            if (DecimalNumber >= 400) return "CD" + ToRoman(DecimalNumber - 400);
+            if (DecimalNumber >= 100) return "C" + ToRoman(DecimalNumber - 100);
+            if (DecimalNumber >= 90) return "XC" + ToRoman(DecimalNumber - 90);
+            if (DecimalNumber >= 50) return "L" + ToRoman(DecimalNumber - 50);
+            if (DecimalNumber >= 40) return "XL" + ToRoman(DecimalNumber - 40);
+            if (DecimalNumber >= 10) return "X" + ToRoman(DecimalNumber - 10);
+            if (DecimalNumber >= 9) return "IX" + ToRoman(DecimalNumber - 9);
+            if (DecimalNumber >= 5) return "V" + ToRoman(DecimalNumber - 5);
+            if (DecimalNumber >= 4) return "IV" + ToRoman(DecimalNumber - 4);
+            if (DecimalNumber >= 1) return "I" + ToRoman(DecimalNumber - 1);
+         
+        }
+    }
