@@ -1,0 +1,41 @@
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int numpalindrom = 123321;
+            if (Checkpalindom(numpalindrom)== true) 
+            {
+                Console.WriteLine("Integer is in Palindrom");
+            }
+            else
+            {
+                Console.WriteLine("Integer is not in Palindrom");
+            }
+            Console.ReadLine();
+
+        }
+        public static bool Checkpalindom(int x)
+        {
+            int leftdigit, rightdigit;
+            if (x < 0)
+                return false;
+         
+            int div = 1;
+            while (x / div >= 10)
+            {
+                div *= 10;
+            }
+            while (x != 0)
+            {
+                 leftdigit = x / div;
+                rightdigit = x % 10;
+                if (leftdigit != rightdigit)
+                {
+                    return false;
+                }
+                x = (x % div) / 10;
+                div /= 100;
+            }
+            return true;
+        }
+    }
