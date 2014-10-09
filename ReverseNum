@@ -1,0 +1,37 @@
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            int number = 12345;
+            //int temp = number;
+            //int remider, reverse = 0;
+            //while (temp != 0)
+            //{
+            //    remider = temp % 10;
+            //    reverse = (reverse * 10) + remider;
+            //    temp = temp / 10;
+            //}
+            //Console.WriteLine(reverse);
+            ReverseNum(number);
+            Console.ReadLine();
+        }
+        public static void ReverseNum(int num)
+        {
+            if(num <=0)
+            {
+                Console.Write(num);
+            }
+            else
+            {
+                int temp = num;
+                if (temp != 0)
+                {
+                    Console.Write(num%10);
+                    ReverseNum(num / 10);
+
+                }
+
+            }
+
+        }
+    }
