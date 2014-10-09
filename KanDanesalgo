@@ -1,0 +1,29 @@
+class Program
+    {
+        public static int[] arrayin = new int[] { -1, 2, -3, 4, 5 };
+       public  static void Main(string[] args)
+        {
+            int result = Maxsumofarray(arrayin);
+            Console.WriteLine("Current max sum" + result);
+            Console.ReadLine();
+        }
+
+        public static int Maxsumofarray(int[] input)
+        {
+            int max_so_far = input[0];
+            int curr_max = input[0];
+
+            for (int i = 1; i <= input.Length-1; i++)
+            {
+                curr_max = Max(input[i],curr_max+input[i]);
+                max_so_far= Max(max_so_far,curr_max);
+
+            }
+            return max_so_far;
+        }
+
+        private static int Max(int p1, int p2)
+        {
+            return ((p1 > p2) ? p1 : p2);
+        }
+    }
